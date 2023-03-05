@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8iq4fw8xd6ci"]
+
+[ext_resource type="Script" path="res://App.cs" id="1_7oivt"]
+
+[node name="App" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7oivt")
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 37.0
+grow_horizontal = 2
+alignment = 2
+update_on_text_changed = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 7.0
+offset_top = 42.0
+offset_right = -6.0
+offset_bottom = 74.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="AddButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="SubtractButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="MultiplyButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "*"
+
+[node name="DivideButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "/"
+
+[node name="EqualButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "="
+
+[connection signal="value_changed" from="SpinBox" to="." method="OnSpinBoxValueChanged"]
+[connection signal="pressed" from="HBoxContainer/AddButton" to="." method="OnAddButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/SubtractButton" to="." method="OnSubtractButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/MultiplyButton" to="." method="OnMultiplyButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/DivideButton" to="." method="OnDivideButtonPressed"]
+[connection signal="pressed" from="HBoxContainer/EqualButton" to="." method="OnEqualButtonPressed"]
